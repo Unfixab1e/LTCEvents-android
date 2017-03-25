@@ -1,15 +1,26 @@
 package org.learnteachcode.seoul.android.ltcevents;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
+
+    public void buttonClick(View view) {
+        Intent myIntent = new Intent(this, DisplayMessageActivity.class);
+        EditText editText = (EditText) findViewById(R.id.editText);
+        String message = editText.getText().toString();
+        myIntent.putExtra("myuniquemessage", message);
+        startActivity(myIntent);
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
